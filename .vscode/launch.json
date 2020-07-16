@@ -1,0 +1,15 @@
+{
+	// Use IntelliSense to learn about possible attributes.
+	// Hover to view descriptions of existing attributes.
+	// For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"type": "java",
+			"name": "Start",
+			"request": "launch",
+			"mainClass": "main.Game",
+			"projectName": "rpg_6436cb16"
+		}
+	]
+}

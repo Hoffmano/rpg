@@ -45,7 +45,7 @@ public class Game extends Canvas implements Runnable, KeyListener {
     }
 
     private void createFrame() {
-        JFrame frame = new JFrame("RPG");
+        final JFrame frame = new JFrame("RPG");
         frame.setResizable(false);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.add(this);
@@ -54,9 +54,8 @@ public class Game extends Canvas implements Runnable, KeyListener {
         frame.setVisible(true);
     }
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
         Game game = new Game();
-
         game.start();
     }
 
@@ -70,12 +69,12 @@ public class Game extends Canvas implements Runnable, KeyListener {
     public void run() {
         requestFocus();
         long lastTime = System.nanoTime();
-        float fps = 30;
-        double nanoSecondsPerFrame = 1000000000 / fps;
+        final float fps = 30;
+        final double nanoSecondsPerFrame = 1000000000 / fps;
         double deltaTime = 0;
         double initialTimeMillis = System.currentTimeMillis();
         while (isRunning) {
-            long now = System.nanoTime();
+            final long now = System.nanoTime();
             deltaTime += (now - lastTime) / nanoSecondsPerFrame;
             lastTime = now;
             deltaTime = executeNextFrame(deltaTime);
@@ -106,7 +105,7 @@ public class Game extends Canvas implements Runnable, KeyListener {
     }
 
     private void render() {
-        BufferStrategy bufferStrategy = this.getBufferStrategy();
+        final BufferStrategy bufferStrategy = this.getBufferStrategy();
         if (bufferStrategy == null) {
             this.createBufferStrategy(3);
             return;
@@ -115,7 +114,7 @@ public class Game extends Canvas implements Runnable, KeyListener {
         graphics.setColor(Color.darkGray);
         graphics.fillRect(0, 0, WIDTH, HEIGHT);
 
-        Graphics2D graphics2D = (Graphics2D) graphics;
+        final Graphics2D graphics2D = (Graphics2D) graphics;
 
         world.render(graphics);
 
@@ -130,12 +129,12 @@ public class Game extends Canvas implements Runnable, KeyListener {
     }
 
     @Override
-    public void keyTyped(KeyEvent e) {
+    public void keyTyped(final KeyEvent e) {
 
     }
 
     @Override
-    public void keyPressed(KeyEvent e) {
+    public void keyPressed(final KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_W) {
             player.up = true;
         } else if (e.getKeyCode() == KeyEvent.VK_S) {
@@ -149,7 +148,7 @@ public class Game extends Canvas implements Runnable, KeyListener {
     }
 
     @Override
-    public void keyReleased(KeyEvent e) {
+    public void keyReleased(final KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_W) {
             player.up = false;
         } else if (e.getKeyCode() == KeyEvent.VK_S) {
