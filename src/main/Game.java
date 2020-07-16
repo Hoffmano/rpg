@@ -16,7 +16,8 @@ import java.util.List;
 import java.util.Random;
 
 public class Game extends Canvas implements Runnable, KeyListener {
-    public static int WIDTH = 256;
+	private static final long serialVersionUID = 1L;
+	public static int WIDTH = 256;
     public static int HEIGHT = 144;
     public static int SCALE = 4;
     public static Spritesheet spritesheet;
@@ -113,8 +114,6 @@ public class Game extends Canvas implements Runnable, KeyListener {
         Graphics graphics = image.getGraphics();
         graphics.setColor(Color.darkGray);
         graphics.fillRect(0, 0, WIDTH, HEIGHT);
-
-        final Graphics2D graphics2D = (Graphics2D) graphics;
 
         world.render(graphics);
 
