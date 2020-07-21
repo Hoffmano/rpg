@@ -1,5 +1,6 @@
 package world;
 
+import entities.WaterBottle;
 import entities.Enemy;
 import entities.Entity;
 import main.Game;
@@ -43,20 +44,21 @@ public class World {
                             Game.player.setY(y * 16);
                             break;
                         case 0xffff0000:
-                            Game.entities.add(new Enemy(x * 16, y * 16, 16, 16, Entity.ENEMY));
+                            Enemy enemy = new Enemy(x * 16, y * 16, 16, 16, Entity.ENEMY);
+                            Game.entities.add(enemy);
+                            Game.enemies.add(enemy);
                             break;
                         case 0xff00ff5a:
-                            Game.entities.add(new Entity(x * 16, y * 16, 16, 16, Entity.ROCK));
+                            Game.entities.add(new entities.Rock(x * 16, y * 16, 16, 16, Entity.ROCK));
                             break;
                         case 0xffd200ff:
-                            Game.entities.add(new Entity(x * 16, y * 16, 16, 16, Entity.WATER));
+                            Game.entities.add(new WaterBottle(x * 16, y * 16, 16, 16, WaterBottle.WATER));
                             break;
                     }
                 }
             }
         }
         catch (IOException e) {
-            e.printStackTrace();
         }
     }
 
